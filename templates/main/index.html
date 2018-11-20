@@ -1,14 +1,36 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>TA Assignment Application</h1>
-    <div id="user">
-        <b>User:</b> {{ user }}<br><br>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-8">
+                <h1>TA Assignment Application</h1>
+            </div>
+            <div class="col-4">
+              <b>Hello, </b>{{ user }}<br><br>
+            </div>
+        </div>
     </div>
 
-<form method="post" action="/">
-{% csrf_token %}
-Command: <input type="text" name="command"/><input type="submit"/>
-</form>
+    <div class="row">
+        <div class="col-sm-9">
+            Command
+            <form method="post" action="/">
+                {% csrf_token %}
+                 <div class="row">
+                    <div class="col-8 col-sm-6">
+                        <input type="text" name="command"/><br>
+                    </div>
+                    <div class="col-4 col-sm-6">
+                        <input class = "btn btn-secondary btn-lg" type="submit"/>
+                    </div>
+                 </div>
+
+            </form>
+
+        </div>
+    </div>
+
 
 <div id="out">
     <hr>
@@ -19,5 +41,4 @@ Command: <input type="text" name="command"/><input type="submit"/>
         <hr>
         <b>Commands: </b><small>{{ commands }}</small>
     </div>
-
 {% endblock content %}
